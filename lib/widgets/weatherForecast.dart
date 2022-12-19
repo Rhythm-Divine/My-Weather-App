@@ -81,9 +81,10 @@ class _ForecastCardState extends State<ForecastCard> {
                 padding: const EdgeInsets.only(top: 500),
                 child: Center(
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       const Text(
-                        'Please enter the city name correctly',
+                        'Please enter a valid city name.',
                         style: TextStyle(
                             fontSize: 18, fontWeight: FontWeight.bold),
                       ),
@@ -101,7 +102,7 @@ class _ForecastCardState extends State<ForecastCard> {
                                   builder: (context) => const MainPage()));
                         },
                         child: const Text(
-                          'Check My Location Weather',
+                          'Check My Location weather',
                           style: TextStyle(color: Colors.white),
                         ),
                       ),

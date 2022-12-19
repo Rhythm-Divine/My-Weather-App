@@ -18,31 +18,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  void show() {
-    Future<bool> sd = locationAccess();
-
-    if (sd == false) {
-      final sb = SnackBar(
-          content: const Text("Please turn on location to use this app."),
-          action: SnackBarAction(
-            label: "Settings",
-            onPressed: (() {
-              AppSettings.openLocationSettings();
-            }),
-          ));
-      if (!mounted) {
-        return;
-      }
-      ScaffoldMessenger.of(context).showSnackBar(sb);
-      Navigator.of(context).pop();
-    }
-  }
-
-  Future<bool> locationAccess() async {
-    bool isAccess = await Geolocator.isLocationServiceEnabled();
-    return isAccess;
-  }
-
   Future<CurrentWeather> weatherFuture = cityWeather('');
   Future<Forecast> forecastFuture = cityForecast('');
   Location location = Location();
@@ -80,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
   bool isDarkMode = false;
   @override
   Widget build(BuildContext context) {
-    show();
+    // show();
     return Scaffold(
       body: Stack(
         children: [
